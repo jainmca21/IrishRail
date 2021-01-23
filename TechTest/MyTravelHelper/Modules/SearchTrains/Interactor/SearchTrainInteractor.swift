@@ -8,19 +8,22 @@
 
 import Foundation
 import XMLParsing
-import Alamofire
 
 class SearchTrainInteractor: PresenterToInteractorProtocol {
     var _sourceStationCode = String()
     var _destinationStationCode = String()
     var presenter: InteractorToPresenterProtocol?
+    let cloudConnector = CloudConnector.shared
 
     func fetchallStations() {
         if Reach().isNetworkReachable() == true {
-            Alamofire.request("http://api.irishrail.ie/realtime/realtime.asmx/getAllStationsXML")
-                .response { (response) in
-                let station = try? XMLDecoder().decode(Stations.self, from: response.data!)
-                self.presenter!.stationListFetched(list: station!.stationsList)
+            cloudConnector.connectWith(urlStr: "http://api.irishrail.ie/realtime/realtime.asmx/getAllStationsXML") { (data, error) in
+                if error == nil {
+                    if let _data = data{
+                        let station = try? XMLDecoder().decode(Stations.self, from: _data)
+                        self.presenter!.stationListFetched(list: station!.stationsList)
+                    }
+                }
             }
         } else {
             self.presenter!.showNoInterNetAvailabilityMessage()
@@ -32,12 +35,16 @@ class SearchTrainInteractor: PresenterToInteractorProtocol {
         _destinationStationCode = destinationCode
         let urlString = "http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByCodeXML?StationCode=\(sourceCode)"
         if Reach().isNetworkReachable() {
-            Alamofire.request(urlString).response { (response) in
-                let stationData = try? XMLDecoder().decode(StationData.self, from: response.data!)
-                if let _trainsList = stationData?.trainsList {
-                    self.proceesTrainListforDestinationCheck(trainsList: _trainsList)
-                } else {
-                    self.presenter!.showNoTrainAvailbilityFromSource()
+            cloudConnector.connectWith(urlStr: "http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByCodeXML?StationCode=\(sourceCode)") { (data, error) in
+                if error == nil {
+                    if let _data = data{
+                        let stationData = try? XMLDecoder().decode(StationData.self, from: _data)
+                        if let _trainsList = stationData?.trainsList {
+                            self.proceesTrainListforDestinationCheck(trainsList: _trainsList)
+                        } else {
+                            self.presenter!.showNoTrainAvailbilityFromSource()
+                        }
+                    }
                 }
             }
         } else {
@@ -57,26 +64,29 @@ class SearchTrainInteractor: PresenterToInteractorProtocol {
             group.enter()
             let _urlString = "http://api.irishrail.ie/realtime/realtime.asmx/getTrainMovementsXML?TrainId=\(trainsList[index].trainCode)&TrainDate=\(dateString)"
             if Reach().isNetworkReachable() {
-                Alamofire.request(_urlString).response { (movementsData) in
-                    let trainMovements = try? XMLDecoder().decode(TrainMovementsData.self, from: movementsData.data!)
-
-                    if let _movements = trainMovements?.trainMovements {
-                        let sourceIndex = _movements.firstIndex(where: {$0.locationCode.caseInsensitiveCompare(self._sourceStationCode) == .orderedSame})
-                        let destinationIndex = _movements.firstIndex(where: {$0.locationCode.caseInsensitiveCompare(self._destinationStationCode) == .orderedSame})
-                        let desiredStationMoment = _movements.filter{$0.locationCode.caseInsensitiveCompare(self._destinationStationCode) == .orderedSame}
-                        let isDestinationAvailable = desiredStationMoment.count == 1
-
-                        if isDestinationAvailable  && sourceIndex! < destinationIndex! {
-                            _trainsList[index].destinationDetails = desiredStationMoment.first
+                cloudConnector.connectWith(urlStr: _urlString) { (data, error) in
+                    if error == nil {
+                        if let _data = data{
+                            let trainMovements = try? XMLDecoder().decode(TrainMovementsData.self, from: _data)
+                            if let _movements = trainMovements?.trainMovements {
+                                let sourceIndex = _movements.firstIndex(where: {$0.locationCode.caseInsensitiveCompare(self._sourceStationCode) == .orderedSame})
+                                let destinationIndex = _movements.firstIndex(where: {$0.locationCode.caseInsensitiveCompare(self._destinationStationCode) == .orderedSame})
+                                let desiredStationMoment = _movements.filter{$0.locationCode.caseInsensitiveCompare(self._destinationStationCode) == .orderedSame}
+                                let isDestinationAvailable = desiredStationMoment.count == 1
+                                
+                                if isDestinationAvailable  && sourceIndex! < destinationIndex! {
+                                    _trainsList[index].destinationDetails = desiredStationMoment.first
+                                }
+                            }
+                            group.leave()
                         }
                     }
-                    group.leave()
                 }
             } else {
                 self.presenter!.showNoInterNetAvailabilityMessage()
             }
         }
-
+        
         group.notify(queue: DispatchQueue.main) {
             let sourceToDestinationTrains = _trainsList.filter{$0.destinationDetails != nil}
             self.presenter!.fetchedTrainsList(trainsList: sourceToDestinationTrains)
