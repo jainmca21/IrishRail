@@ -14,7 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var navigation: UINavigationController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let notice = SearchTrainRouter.createModule()
+        //let notice = SearchTrainRouter.createModule()
+        let notice = FavStationRouter.createModule()
         window = UIWindow(frame: UIScreen.main.bounds)
         navigation = UINavigationController(rootViewController: notice)
         window?.rootViewController = navigation

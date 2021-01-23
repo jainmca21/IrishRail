@@ -19,9 +19,7 @@ class CloudConnector{
     typealias ResponseHandler = (_ response:Data?, _ error:Error?) -> Void
 
     
-    func connectWith(urlStr:String, callback:@escaping ResponseHandler){
-        dataTask?.cancel()
-        
+    func connectWith(urlStr:String, callback:@escaping ResponseHandler){        
         let handler = callback
         guard  let url = URL(string: urlStr) else { return }
         

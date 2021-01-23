@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -27,6 +27,15 @@
 		753F0851223618AD00175107 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 753F084F223618AD00175107 /* LaunchScreen.storyboard */; };
 		753F087122361A6500175107 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753F087022361A6500175107 /* AppConstants.swift */; };
 		8CBBCE0D40B8FE266A1617DE /* Pods_MyTravelHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF635B96516F13D67ADE01AF /* Pods_MyTravelHelper.framework */; };
+		F12F737725BC173D00C22296 /* CloudConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12F737625BC173D00C22296 /* CloudConnector.swift */; };
+		F1646ACF25BC60C300F7DD0A /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1646ACE25BC60C300F7DD0A /* Test.swift */; };
+		F1646AE025BC60E400F7DD0A /* FavStationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1646AD425BC60E400F7DD0A /* FavStationInfo.swift */; };
+		F1646AE125BC60E400F7DD0A /* FavStationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1646AD625BC60E400F7DD0A /* FavStationPresenter.swift */; };
+		F1646AE225BC60E400F7DD0A /* FavStationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1646AD825BC60E400F7DD0A /* FavStationCell.swift */; };
+		F1646AE325BC60E400F7DD0A /* FavStatonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1646AD925BC60E400F7DD0A /* FavStatonViewController.swift */; };
+		F1646AE425BC60E400F7DD0A /* FavStationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1646ADB25BC60E400F7DD0A /* FavStationProtocol.swift */; };
+		F1646AE525BC60E400F7DD0A /* FavStationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1646ADD25BC60E400F7DD0A /* FavStationInteractor.swift */; };
+		F1646AE625BC60E400F7DD0A /* FavStationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1646ADF25BC60E400F7DD0A /* FavStationRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +77,15 @@
 		849A0A29A57A433EA5AB15FB /* Pods-MyTravelHelperTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyTravelHelperTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyTravelHelperTests/Pods-MyTravelHelperTests.release.xcconfig"; sourceTree = "<group>"; };
 		AF635B96516F13D67ADE01AF /* Pods_MyTravelHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyTravelHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD4A9E0F8C97F8AA92AAA053 /* Pods_MyTravelHelperTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyTravelHelperTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F12F737625BC173D00C22296 /* CloudConnector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudConnector.swift; sourceTree = "<group>"; };
+		F1646ACE25BC60C300F7DD0A /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		F1646AD425BC60E400F7DD0A /* FavStationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavStationInfo.swift; sourceTree = "<group>"; };
+		F1646AD625BC60E400F7DD0A /* FavStationPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavStationPresenter.swift; sourceTree = "<group>"; };
+		F1646AD825BC60E400F7DD0A /* FavStationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavStationCell.swift; sourceTree = "<group>"; };
+		F1646AD925BC60E400F7DD0A /* FavStatonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavStatonViewController.swift; sourceTree = "<group>"; };
+		F1646ADB25BC60E400F7DD0A /* FavStationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavStationProtocol.swift; sourceTree = "<group>"; };
+		F1646ADD25BC60E400F7DD0A /* FavStationInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavStationInteractor.swift; sourceTree = "<group>"; };
+		F1646ADF25BC60E400F7DD0A /* FavStationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavStationRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +160,7 @@
 		753F0845223618AB00175107 /* MyTravelHelper */ = {
 			isa = PBXGroup;
 			children = (
+				F12F737525BC173D00C22296 /* Cloud-Connector */,
 				753C8FB822367E64005FF13B /* App-Ui */,
 				753F086F22361A5100175107 /* App-utils */,
 				753F08672236190700175107 /* Modules */,
@@ -164,7 +183,9 @@
 		753F08672236190700175107 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				F1646AD225BC60E400F7DD0A /* FavStations */,
 				753F08682236191900175107 /* SearchTrains */,
+				F1646ACE25BC60C300F7DD0A /* Test.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -242,6 +263,76 @@
 				753C8FB622367DF4005FF13B /* ProgressIndicator.swift */,
 			);
 			path = "App-utils";
+			sourceTree = "<group>";
+		};
+		F12F737525BC173D00C22296 /* Cloud-Connector */ = {
+			isa = PBXGroup;
+			children = (
+				F12F737625BC173D00C22296 /* CloudConnector.swift */,
+			);
+			path = "Cloud-Connector";
+			sourceTree = "<group>";
+		};
+		F1646AD225BC60E400F7DD0A /* FavStations */ = {
+			isa = PBXGroup;
+			children = (
+				F1646AD325BC60E400F7DD0A /* Entity */,
+				F1646AD525BC60E400F7DD0A /* Presenter */,
+				F1646AD725BC60E400F7DD0A /* View */,
+				F1646ADA25BC60E400F7DD0A /* Protocols */,
+				F1646ADC25BC60E400F7DD0A /* Interactor */,
+				F1646ADE25BC60E400F7DD0A /* Router */,
+			);
+			path = FavStations;
+			sourceTree = "<group>";
+		};
+		F1646AD325BC60E400F7DD0A /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				F1646AD425BC60E400F7DD0A /* FavStationInfo.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		F1646AD525BC60E400F7DD0A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F1646AD625BC60E400F7DD0A /* FavStationPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		F1646AD725BC60E400F7DD0A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F1646AD825BC60E400F7DD0A /* FavStationCell.swift */,
+				F1646AD925BC60E400F7DD0A /* FavStatonViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F1646ADA25BC60E400F7DD0A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F1646ADB25BC60E400F7DD0A /* FavStationProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F1646ADC25BC60E400F7DD0A /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				F1646ADD25BC60E400F7DD0A /* FavStationInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		F1646ADE25BC60E400F7DD0A /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F1646ADF25BC60E400F7DD0A /* FavStationRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,23 +478,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MyTravelHelper/Pods-MyTravelHelper-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftSpinner/SwiftSpinner.framework",
-				"${BUILT_PRODUCTS_DIR}/XMLParsing/XMLParsing.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyTravelHelper/Pods-MyTravelHelper-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSpinner.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XMLParsing.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MyTravelHelper/Pods-MyTravelHelper-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyTravelHelper/Pods-MyTravelHelper-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyTravelHelper/Pods-MyTravelHelper-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -417,15 +501,24 @@
 				753C8FA822361FC0005FF13B /* SearchTrainProtocols.swift in Sources */,
 				753C8FAA2236228C005FF13B /* SearchTrainPresenter.swift in Sources */,
 				753C8FAE22362463005FF13B /* SearchTrainViewController.swift in Sources */,
+				F1646AE425BC60E400F7DD0A /* FavStationProtocol.swift in Sources */,
 				753C8FB722367DF4005FF13B /* ProgressIndicator.swift in Sources */,
+				F1646AE225BC60E400F7DD0A /* FavStationCell.swift in Sources */,
+				F1646ACF25BC60C300F7DD0A /* Test.swift in Sources */,
 				753C8FB522367D1C005FF13B /* AppUtils.swift in Sources */,
 				753C8FA522361EC9005FF13B /* StationInfo.swift in Sources */,
+				F1646AE625BC60E400F7DD0A /* FavStationRouter.swift in Sources */,
+				F1646AE325BC60E400F7DD0A /* FavStatonViewController.swift in Sources */,
+				F1646AE525BC60E400F7DD0A /* FavStationInteractor.swift in Sources */,
 				753C8FBC223731E3005FF13B /* Reachability.swift in Sources */,
 				753C8FA622361EC9005FF13B /* Stations.swift in Sources */,
+				F1646AE025BC60E400F7DD0A /* FavStationInfo.swift in Sources */,
+				F1646AE125BC60E400F7DD0A /* FavStationPresenter.swift in Sources */,
 				753C8FAC223623C2005FF13B /* SearchTrainInteractor.swift in Sources */,
 				753F087122361A6500175107 /* AppConstants.swift in Sources */,
 				753F0847223618AB00175107 /* AppDelegate.swift in Sources */,
 				753C8FA422361EC9005FF13B /* TrainMovements.swift in Sources */,
+				F12F737725BC173D00C22296 /* CloudConnector.swift in Sources */,
 				753C8FB022365E9A005FF13B /* SearchTrainRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

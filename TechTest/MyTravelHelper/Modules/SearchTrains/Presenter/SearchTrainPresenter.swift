@@ -9,6 +9,7 @@
 import UIKit
 
 class SearchTrainPresenter:ViewToPresenterProtocol {
+   
     var stationsList:[Station] = [Station]()
 
     func searchTapped(source: String, destination: String) {
@@ -21,6 +22,10 @@ class SearchTrainPresenter:ViewToPresenterProtocol {
     var router: PresenterToRouterProtocol?
     var view:PresenterToViewProtocol?
 
+    func saveStationAsFav(station: FavStation) {
+        interactor?.saveStationAsFav(station: station)
+    }
+    
     func fetchallStations() {
         interactor?.fetchallStations()
     }

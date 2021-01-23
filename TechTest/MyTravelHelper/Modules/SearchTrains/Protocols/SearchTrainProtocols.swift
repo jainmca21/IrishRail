@@ -14,6 +14,8 @@ protocol ViewToPresenterProtocol: class{
     var router: PresenterToRouterProtocol? {get set}
     func fetchallStations()
     func searchTapped(source:String,destination:String)
+    func saveStationAsFav(station:FavStation)
+
 }
 
 protocol PresenterToViewProtocol: class{
@@ -33,6 +35,8 @@ protocol PresenterToInteractorProtocol: class {
     var presenter:InteractorToPresenterProtocol? {get set}
     func fetchallStations()
     func fetchTrainsFromSource(sourceCode:String,destinationCode:String)
+    func saveStationAsFav(station:FavStation)
+
 }
 
 protocol InteractorToPresenterProtocol: class {

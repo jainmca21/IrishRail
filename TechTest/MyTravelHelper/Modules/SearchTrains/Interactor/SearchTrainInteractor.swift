@@ -9,12 +9,47 @@
 import Foundation
 import XMLParsing
 
+
 class SearchTrainInteractor: PresenterToInteractorProtocol {
+   
     var _sourceStationCode = String()
     var _destinationStationCode = String()
     var presenter: InteractorToPresenterProtocol?
     let cloudConnector = CloudConnector.shared
 
+    func isFavStationsExist(stations:[FavStation], fvStn:FavStation) -> Bool{
+        var isExist = false
+        stations.forEach { (station) in
+            if station.sourceStation == fvStn.sourceStation && station.destStation == fvStn.destStation{
+                isExist = true
+            }
+        }
+        return isExist
+    }
+   
+    func saveStationAsFav(station: FavStation) {
+        let userDef = UserDefaults.standard
+        var stationArr = [FavStation]()
+        
+        if let  jsonStr = userDef.value(forKey: "fav_station") as? String, let data = jsonStr.data(using: .utf8){
+            if let fvStations = try? JSONDecoder().decode([FavStation].self, from: data){
+                
+                if !isFavStationsExist(stations: fvStations, fvStn: station){
+                    stationArr.append(station)
+                    stationArr = stationArr + fvStations
+                }
+            }
+        }
+        let jsonEncoder = JSONEncoder()
+        if let jsonData = try? jsonEncoder.encode(stationArr){
+            let json = String(data: jsonData, encoding: String.Encoding.utf8)
+
+            userDef.setValue(json, forKey: "fav_station")
+            userDef.synchronize()
+        }
+      
+    }
+    
     func fetchallStations() {
         if Reach().isNetworkReachable() == true {
             cloudConnector.connectWith(urlStr: "http://api.irishrail.ie/realtime/realtime.asmx/getAllStationsXML") { (data, error) in
