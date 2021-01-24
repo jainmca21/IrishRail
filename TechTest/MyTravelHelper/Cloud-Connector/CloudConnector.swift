@@ -11,19 +11,24 @@ import Foundation
 class CloudConnector{
     
     static let shared:CloudConnector = CloudConnector()
-    let defSession: URLSession = URLSession(configuration: .default)
+    let defSession: URLSession?
     var dataTask: URLSessionDataTask?
 
-    private init(){}
+    private init(){
+        let sessionConfig = URLSessionConfiguration.default
+        sessionConfig.timeoutIntervalForRequest = 30.0
+        sessionConfig.timeoutIntervalForResource = 60.0
+        defSession = URLSession(configuration: sessionConfig)
+    }
     
     typealias ResponseHandler = (_ response:Data?, _ error:Error?) -> Void
 
     
-    func connectWith(urlStr:String, callback:@escaping ResponseHandler){        
+    func connectWith(urlStr:String, callback:@escaping ResponseHandler){
         let handler = callback
-        guard  let url = URL(string: urlStr) else { return }
+        guard  let url = URL(string: urlStr), let session = defSession else { return }
         
-        dataTask = defSession.dataTask(with: url, completionHandler: { (data, response, error) in
+        dataTask = session.dataTask(with: url, completionHandler: { (data, response, error) in
             defer {
                 self.dataTask = nil
             }

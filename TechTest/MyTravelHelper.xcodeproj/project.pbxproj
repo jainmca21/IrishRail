@@ -36,6 +36,9 @@
 		F1646AE425BC60E400F7DD0A /* FavStationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1646ADB25BC60E400F7DD0A /* FavStationProtocol.swift */; };
 		F1646AE525BC60E400F7DD0A /* FavStationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1646ADD25BC60E400F7DD0A /* FavStationInteractor.swift */; };
 		F1646AE625BC60E400F7DD0A /* FavStationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1646ADF25BC60E400F7DD0A /* FavStationRouter.swift */; };
+		F1646AF125BC9ADB00F7DD0A /* FavStationPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1646AF025BC9ADB00F7DD0A /* FavStationPresenterTests.swift */; };
+		F1646AF725BCAE6C00F7DD0A /* SearchTrainInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1646AF625BCAE6C00F7DD0A /* SearchTrainInteractorTest.swift */; };
+		F1646AFD25BD51A000F7DD0A /* FavStationInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1646AFC25BD51A000F7DD0A /* FavStationInteractorTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +89,9 @@
 		F1646ADB25BC60E400F7DD0A /* FavStationProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavStationProtocol.swift; sourceTree = "<group>"; };
 		F1646ADD25BC60E400F7DD0A /* FavStationInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavStationInteractor.swift; sourceTree = "<group>"; };
 		F1646ADF25BC60E400F7DD0A /* FavStationRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavStationRouter.swift; sourceTree = "<group>"; };
+		F1646AF025BC9ADB00F7DD0A /* FavStationPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavStationPresenterTests.swift; sourceTree = "<group>"; };
+		F1646AF625BCAE6C00F7DD0A /* SearchTrainInteractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTrainInteractorTest.swift; sourceTree = "<group>"; };
+		F1646AFC25BD51A000F7DD0A /* FavStationInteractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavStationInteractorTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +182,9 @@
 			children = (
 				753C8FBD2237367E005FF13B /* SearchTrainPresenterTests.swift */,
 				753F085D223618AE00175107 /* Info.plist */,
+				F1646AF025BC9ADB00F7DD0A /* FavStationPresenterTests.swift */,
+				F1646AF625BCAE6C00F7DD0A /* SearchTrainInteractorTest.swift */,
+				F1646AFC25BD51A000F7DD0A /* FavStationInteractorTest.swift */,
 			);
 			path = MyTravelHelperTests;
 			sourceTree = "<group>";
@@ -528,6 +537,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				753C8FBE2237367E005FF13B /* SearchTrainPresenterTests.swift in Sources */,
+				F1646AF125BC9ADB00F7DD0A /* FavStationPresenterTests.swift in Sources */,
+				F1646AF725BCAE6C00F7DD0A /* SearchTrainInteractorTest.swift in Sources */,
+				F1646AFD25BD51A000F7DD0A /* FavStationInteractorTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,9 @@
 import UIKit
 
 class SearchTrainPresenter:ViewToPresenterProtocol {
-   
+    var favStation: FavStation?
+    
+    
     var stationsList:[Station] = [Station]()
 
     func searchTapped(source: String, destination: String) {
@@ -25,6 +27,11 @@ class SearchTrainPresenter:ViewToPresenterProtocol {
     func saveStationAsFav(station: FavStation) {
         interactor?.saveStationAsFav(station: station)
     }
+    
+    func selectStationAsFav(station: FavStation) {
+        favStation = station
+    }
+    
     
     func fetchallStations() {
         interactor?.fetchallStations()

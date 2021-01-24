@@ -9,7 +9,7 @@
 import Foundation
 class FavStationPresenter:ViewToPresenterFavStationProtocol {
    
-    var view: PresenterToViewFavStationProtocol?
+    weak var view: PresenterToViewFavStationProtocol?
     var interactor: PresenterToInteractorFavStationProtocol?
     var router: PresenterToRouterFavStationProtocol?
     

@@ -9,13 +9,16 @@
 import UIKit
 
 protocol ViewToPresenterProtocol: class{
+    var favStation:FavStation? {get set}
+
     var view: PresenterToViewProtocol? {get set}
     var interactor: PresenterToInteractorProtocol? {get set}
     var router: PresenterToRouterProtocol? {get set}
     func fetchallStations()
     func searchTapped(source:String,destination:String)
+    
     func saveStationAsFav(station:FavStation)
-
+    func selectStationAsFav(station:FavStation)
 }
 
 protocol PresenterToViewProtocol: class{

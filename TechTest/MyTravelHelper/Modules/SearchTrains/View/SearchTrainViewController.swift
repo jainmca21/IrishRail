@@ -20,7 +20,6 @@ class SearchTrainViewController: UIViewController {
     var presenter:ViewToPresenterProtocol?
     var dropDown = DropDown()
     var transitPoints:(source:String,destination:String) = ("","")
-    var favStations:FavStation?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +31,7 @@ class SearchTrainViewController: UIViewController {
             SwiftSpinner.useContainerView(view)
             SwiftSpinner.show("Please wait loading station list ....")
             
-            if let station = favStations{
+            if let station = presenter?.favStation{
                 sourceTxtField.text = station.sourceStation
                 destinationTextField.text = station.destStation
                 transitPoints = (source:station.sourceStation,station.destStation)
@@ -43,8 +42,10 @@ class SearchTrainViewController: UIViewController {
     }
     
     @IBAction func likeButtonAction(_ sender: Any) {
-        let favStation = FavStation(sourceStation: transitPoints.source, destStation: transitPoints.destination)
-        presenter?.saveStationAsFav(station: favStation)
+        if transitPoints.source.count > 0 &&  transitPoints.destination.count > 0 {
+            let favStation = FavStation(sourceStation: transitPoints.source, destStation: transitPoints.destination)
+            presenter?.saveStationAsFav(station: favStation)
+        }
     }
 
     @IBAction func searchTrainsTapped(_ sender: Any) {

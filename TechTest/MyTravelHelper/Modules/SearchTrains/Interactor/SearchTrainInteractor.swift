@@ -68,7 +68,6 @@ class SearchTrainInteractor: PresenterToInteractorProtocol {
     func fetchTrainsFromSource(sourceCode: String, destinationCode: String) {
         _sourceStationCode = sourceCode
         _destinationStationCode = destinationCode
-        let urlString = "http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByCodeXML?StationCode=\(sourceCode)"
         if Reach().isNetworkReachable() {
             cloudConnector.connectWith(urlStr: "http://api.irishrail.ie/realtime/realtime.asmx/getStationDataByCodeXML?StationCode=\(sourceCode)") { (data, error) in
                 if error == nil {

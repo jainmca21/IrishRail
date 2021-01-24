@@ -37,7 +37,7 @@ class FavStationRouter: PresenterToRouterFavStationProtocol {
     
     func showSearchTrain(for station: FavStation) {
         let view = SearchTrainRouter.createModule()
-        view.favStations = station
+        view.presenter?.selectStationAsFav(station: station)
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.navigation?.pushViewController(view, animated: true)
     }
